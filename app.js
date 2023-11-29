@@ -323,7 +323,10 @@ const app = () => {
     });
 
     alertItems.forEach((item) => {
-      item.addEventListener("click", () => alertModal.classList.add("hide"));
+      item.addEventListener("click", () => {
+        closeModal(alertModal);
+        alertModal.classList.add("hide");
+      });
     });
 
     menuItems.forEach((item) => {
@@ -462,6 +465,7 @@ const app = () => {
         }
         // Reset the first click the second click
         isFirstClick = true;
+        updateCount();
       };
       // remove completed step from the article
       const removeActive = () => {
