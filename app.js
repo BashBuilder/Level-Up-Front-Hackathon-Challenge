@@ -254,6 +254,7 @@ const app = () => {
           !alertModal.contains(event.target) &&
           event.target !== menuTrigger
         ) {
+          closeModal(alertTrigger);
           alertModal.classList.add("hide");
           alertTrigger.ariaExpanded = "false";
         }
@@ -263,6 +264,7 @@ const app = () => {
     const menuOutClick = (event) => {
       if (!menuModal.classList.contains("hide")) {
         if (event.target !== menuTrigger && event.target !== alertTrigger) {
+          closeModal(menuTrigger);
           menuModal.classList.add("hide");
           menuTrigger.ariaExpanded = "false";
         }
@@ -324,7 +326,7 @@ const app = () => {
 
     alertItems.forEach((item) => {
       item.addEventListener("click", () => {
-        closeModal(alertModal);
+        closeModal(alertTrigger);
         alertModal.classList.add("hide");
       });
     });
